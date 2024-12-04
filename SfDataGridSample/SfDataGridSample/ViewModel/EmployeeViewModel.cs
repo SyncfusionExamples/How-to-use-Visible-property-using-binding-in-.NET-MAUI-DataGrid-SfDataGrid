@@ -10,8 +10,6 @@ namespace SfDataGridSample
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private bool _isColumnVisible = false;
-
         public ObservableCollection<string> CustomerNames { get; set; }
 
         internal string[] Customers = new string[] { "Adams", "Crowley", "Ellis", "Gable", "Irvine", "Keefe", "Mendoza", "Owens", "Rooney", "Wadded", };
@@ -19,14 +17,13 @@ namespace SfDataGridSample
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
         public EmployeeViewModel()
         {
             PopulateData();
             this.CustomerNames = Customers.ToObservableCollection();
             employees = this.GetEmployeeDetails(50);
         }
+
         private ObservableCollection<Employee> employees;
         public ObservableCollection<Employee> Employees
         {
@@ -38,20 +35,6 @@ namespace SfDataGridSample
             {
                 this.employees = value;
                 NotifyPropertyChanged(nameof(Employees));
-            }
-        }
-
-
-        public bool IsColumnVisible
-        {
-            get => _isColumnVisible;
-            set
-            {
-                if (_isColumnVisible != value)
-                {
-                    _isColumnVisible = value;
-                    NotifyPropertyChanged(nameof(IsColumnVisible));
-                }
             }
         }
 

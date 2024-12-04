@@ -11,11 +11,11 @@
 
 
     <syncfusion:SfDataGrid x:Name="dataGrid"
-                           Margin="10"
                            GridLinesVisibility="Both"
                            HeaderGridLinesVisibility="Both"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="FillAndExpand"
+                           AllowEditing="True"
+                           SelectionMode="Multiple"
+                           NavigationMode="Cell"
                            ColumnWidthMode="Auto"
                            AutoGenerateColumnsMode="None"
                            ItemsSource="{Binding Employees}">
@@ -25,7 +25,6 @@
                                               Format="#"
                                               HeaderText="Employee ID" />
             <syncfusion:DataGridTextColumn MappingName="Name"
-                                           Visible="{Binding IsColumnVisible}"
                                            HeaderText="Employee Name" />
             <syncfusion:DataGridTextColumn MappingName="Title"
                                            HeaderText="Designation" />
